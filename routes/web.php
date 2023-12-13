@@ -1,14 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
-Route::get('/', function () {
-    return view('login');
-});
-
-Route::get('/register', function(){
-    return view('register');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -19,4 +14,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//Login , Register ,
+Route::redirect('/', 'loginPage');
+Route::get('loginPage',[AuthController::class,'loginPage'])->name('auth#loginPage');
+Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
+
+//admin
+
+//Category
+// Route::group(['prefix'=>'category'],function(){
+    
+   Route::get('/category/list',[CategoryController::class,'list'])->name('category#list');
+//});
+//user
 

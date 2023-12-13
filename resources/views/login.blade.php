@@ -21,7 +21,7 @@
     <div class="register-link">
         <p>
             Don't you have account?
-            <a href="{{url('/register')}}">Sign Up Here</a>
+            <a href="{{route('auth#registerPage')}}">Sign Up Here</a>
         </p>
     </div>
 </div>
