@@ -8,5 +8,10 @@
 </head>
 <body>
     Hello This is Category page
+
+    <form action="{{route('logout')}}" method="POST">
+        @csrf
+        <input type="submit" value="Logout">
+    </form>
 </body>
 </html>
